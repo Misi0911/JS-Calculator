@@ -5,9 +5,9 @@ class Calculator {
 		this.clear()
 	}
 	clear() {
-		this.currentOperand = '';
-		this.previousOperand = '';
-		this.operation = undefined;
+		this.currentOperand = ''
+		this.previousOperand = ''
+		this.operation = undefined
 	}
 	delete () {
 		this.currentOperand = this.currentOperand.toString().slice(0, -1)
@@ -57,7 +57,7 @@ class Calculator {
 		const decimalDigits = stringNumber.split('.')[1]
 		let  integerDisplay
 		if(isNaN(integerDigits)) {
-			integerDigits = ''
+			integerDisplay = ''
 		} else {
 			integerDisplay = integerDigits.toLocaleString('en', {
 				maximumFractionDigits: 0
@@ -80,18 +80,20 @@ class Calculator {
 			this.previousOperandTextElement.innerText = 
 				`${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
 
+		} else {
+			this.previousOperandTextElement.innerText = ''
 		}
 	}
 }
 
 
-const numberButtons = document.querySelectorAll('[data-number]');
-const operationButtons = document.querySelectorAll('[data-operation]');
-const equalsButton = document.querySelector('[data-equals]');
-const deleteButton = document.querySelector('[data-delete]');
-const allClearButton = document.querySelector('[data-all-clear]');
-const previousOperandTextElement = document.querySelector('[data-previous-operand]');
-const currentOperandTextElement = document.querySelector('[data-current-operand]');
+const numberButtons = document.querySelectorAll('[data-number]')
+const operationButtons = document.querySelectorAll('[data-operation]')
+const equalsButton = document.querySelector('[data-equals]')
+const deleteButton = document.querySelector('[data-delete]')
+const allClearButton = document.querySelector('[data-all-clear]')
+const previousOperandTextElement = document.querySelector('[data-previous-operand]')
+const currentOperandTextElement = document.querySelector('[data-current-operand]')
 
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
 
